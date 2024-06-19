@@ -1,1 +1,25 @@
-<p>home works!</p>
+<app-home-header/>
+
+<app-home-text/>
+
+<div *ngFor="let weather of citiesWeather">
+  <h2>{{ weather.cityName }}</h2>
+  <p>Čas: {{ weather.time | date : "short" }}</p>
+  <p>Teplota: {{ weather.temperature2m | number : "1.1-1" }}°C</p>
+  <p>Vlhkost: {{ weather.relativeHumidity2m | number : "1.1-1" }}%</p>
+  <p>
+    Teplota pocitová: {{ weather.apparentTemperature | number : "1.1-1" }}°C
+  </p>
+  <p>Den/Noc: {{ weather.isDay ? "Den" : "Noc" }}</p>
+  <p>Srážky: {{ weather.precipitation | number : "1.1-1" }}mm</p>
+  <p>Déšť: {{ weather.rain | number : "1.1-1" }}mm</p>
+  <p>Přeháňky: {{ weather.showers | number : "1.1-1" }}mm</p>
+  <p>Sněžení: {{ weather.snowfall | number : "1.1-1" }}mm</p>
+  <p>Oblačnost: {{ weather.cloudCover | number : "1.1-1" }}%</p>
+  <p>Tlak na mořské hladině: {{ weather.pressureMsl | number : "1.1-1" }}hPa</p>
+  <p>Povrchový tlak: {{ weather.surfacePressure | number : "1.1-1" }}hPa</p>
+  <p>Rychlost větru: {{ weather.windSpeed10m | number : "1.1-1" }}km/h</p>
+  <p>Směr větru: {{ weather.windDirection10m | number : "1.1-1" }}°</p>
+  <p>Náraz větru: {{ weather.windGusts10m | number : "1.1-1" }}km/h</p>
+  <hr />
+</div>

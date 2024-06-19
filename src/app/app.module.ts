@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
-import { NavbarLoginComponent } from './components/navbar-login/navbar-login.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeHeaderComponent } from './components/home-header/home-header.component';
+import { HomeTextComponent } from './components/home-text/home-text.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { RegisterComponent } from './pages/register/register.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    NavbarLoginComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeHeaderComponent,
+    HomeTextComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
