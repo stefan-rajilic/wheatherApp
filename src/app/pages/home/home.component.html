@@ -1,25 +1,71 @@
-<app-home-header/>
+<app-home-header />
 
-<app-home-text/>
+<!-- <app-home-text /> -->
 
-<div *ngFor="let weather of citiesWeather">
-  <h2>{{ weather.cityName }}</h2>
-  <p>Čas: {{ weather.time | date : "short" }}</p>
-  <p>Teplota: {{ weather.temperature2m | number : "1.1-1" }}°C</p>
-  <p>Vlhkost: {{ weather.relativeHumidity2m | number : "1.1-1" }}%</p>
-  <p>
-    Teplota pocitová: {{ weather.apparentTemperature | number : "1.1-1" }}°C
-  </p>
-  <p>Den/Noc: {{ weather.isDay ? "Den" : "Noc" }}</p>
-  <p>Srážky: {{ weather.precipitation | number : "1.1-1" }}mm</p>
-  <p>Déšť: {{ weather.rain | number : "1.1-1" }}mm</p>
-  <p>Přeháňky: {{ weather.showers | number : "1.1-1" }}mm</p>
-  <p>Sněžení: {{ weather.snowfall | number : "1.1-1" }}mm</p>
-  <p>Oblačnost: {{ weather.cloudCover | number : "1.1-1" }}%</p>
-  <p>Tlak na mořské hladině: {{ weather.pressureMsl | number : "1.1-1" }}hPa</p>
-  <p>Povrchový tlak: {{ weather.surfacePressure | number : "1.1-1" }}hPa</p>
-  <p>Rychlost větru: {{ weather.windSpeed10m | number : "1.1-1" }}km/h</p>
-  <p>Směr větru: {{ weather.windDirection10m | number : "1.1-1" }}°</p>
-  <p>Náraz větru: {{ weather.windGusts10m | number : "1.1-1" }}km/h</p>
-  <hr />
+<div class="averageHeader">
+  <h1>Aktuální počasí</h1>
 </div>
+<div class="currentContainer">
+  <div
+    [style.backgroundImage]="'url(' + weatherNow.background_image + ')'"
+    class="currentItem"
+    *ngFor="let weatherNow of citiesWeatherNow"
+    (click)="goToDetail(weatherNow.cityName)"
+  >
+    <div class="bckCont">
+      <div class="itemHeader">
+        <h2 style="padding: 15px; font-weight: bold">
+          {{ weatherNow.cityName }}
+        </h2>
+        <p>{{ weatherNow.temperature_2m }}°C</p>
+      </div>
+
+      <div class="currentData">
+        <div class="weatherInfo"> {{ weatherNow.apparent_temperature }}°C</div>
+        <div class="weatherInfo"> {{ weatherNow.cloud_cover }}%</div>
+        <div class="weatherInfo"> {{ weatherNow.rain }}mm</div>
+        <div class="weatherInfo"> {{ weatherNow.relative_humidity_2m }}%</div>
+        <div class="weatherInfo"> {{ weatherNow.wind_speed_10m }}km/h</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="averageHeader">
+  <h1>Dnešní průměry</h1>
+</div>
+
+<div class="averageContainer">
+  <div
+    class="averageItem"
+    *ngFor="let weather of citiesWeather"
+    (click)="goToDetail(weather.cityName)"
+  >
+    <div class="itemHeader">
+      <h2>{{ weather.cityName }}</h2>
+    </div>
+    <div style="margin-top: 10px">
+      <p>Teplota: {{ weather.temperature2m | number : "1.1-1" }}°C</p>
+      <p>
+        Teplota pocitová: {{ weather.apparentTemperature | number : "1.1-1" }}°C
+      </p>
+    </div>
+    <div>
+      <p>Vlhkost: {{ weather.relativeHumidity2m | number : "1.1-1" }}%</p>
+      <p>Srážky: {{ weather.precipitation | number : "1.1-1" }}mm</p>
+    </div>
+    <div>
+      <p>Déšť: {{ weather.rain | number : "1.1-1" }}mm</p>
+      <p>Přeháňky: {{ weather.showers | number : "1.1-1" }}mm</p>
+    </div>
+    <div>
+      <p>Sněžení: {{ weather.snowfall | number : "1.1-1" }}mm</p>
+      <p>Oblačnost: {{ weather.cloudCover | number : "1.1-1" }}%</p>
+    </div>
+
+    <div>
+      <p>Rychlost větru: {{ weather.windSpeed10m | number : "1.1-1" }}km/h</p>
+      <p>Náraz větru: {{ weather.windGusts10m | number : "1.1-1" }}km/h</p>
+    </div>
+  </div>
+</div> -->

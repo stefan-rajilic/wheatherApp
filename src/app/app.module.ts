@@ -11,6 +11,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeHeaderComponent } from './components/home-header/home-header.component';
 import { HomeTextComponent } from './components/home-text/home-text.component';
+import { WeatherDetailComponent } from './pages/weather-detail/weather-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HomeTextComponent } from './components/home-text/home-text.component';
     RegisterComponent,
     HomeHeaderComponent,
     HomeTextComponent,
+    WeatherDetailComponent,
   ],
   imports: [
     BrowserModule,
